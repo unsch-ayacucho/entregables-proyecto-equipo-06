@@ -49,25 +49,46 @@
 								<a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span><span th:text="${category1.name}"></span><b class="caret"></b></span></a>
 								<th:block data-th-if="${category1.categories.size()} > 0">
 								<ul class="dropdown-menu multi">
+								
 									<div class="row">
 									<th:block data-th-each="category2 : ${category1.categories}">
 										<div class="col-sm-3">
 											<ul class="multi-column-dropdown">
-												<li><a href="kitchen.html" th:text="${category2.name}"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+												<li>
+													<a href="kitchen.html" th:text="${category2.name}">
+														<i class="fa fa-angle-right" aria-hidden="true"></i>
+														</a>
+													</li>
+													
 											</ul>
-										
+											<th:block data-th-if="${category2.categories.size()} > 0">
+												<ul>
+													<th:block data-th-each="category3 : ${category2.categories}">
+														<li>
+														<a href="Personal Care.html" th:text=${category3.name}>
+															<i class="fa fa-angle-right" aria-hidden="true"></i>
+														</a>
+														</li>
+													</th:block>
+													
+												</ul>											
+											</th:block>
+																				
 										</div>
 										</th:block>
 										<div class="col-sm-3 w3l">
 											<a href="kitchen.html"><img th:src="@{/public/images/me.png}" class="img-responsive" alt=""></a>
 										</div>
 										<div class="clearfix"></div>
-									</div>	
+									</div>
+									
 								</ul>
-	            				</th:block>						
+	            				</th:block>
+	            										
 							</li>
 						 	</th:block>
-						 	<!-- G E N E R A R   C A T E G O R I A S   F I N-->
+						 	<!-- F I N   G E N E R A R   C A T E G O R I A S   -->
+						 	
 							<li><a href="codes.html" class="hyper"> <span>Codes</span></a></li>
 							<li><a href="contact.html" class="hyper"><span>Contact Us</span></a></li>
 						</ul>
