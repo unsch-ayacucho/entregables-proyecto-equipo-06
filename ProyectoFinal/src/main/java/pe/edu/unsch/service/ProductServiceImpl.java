@@ -1,5 +1,7 @@
 package pe.edu.unsch.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +19,11 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public Product find(Integer id) {
 		return productDao.find(id);
+	}
+	
+	@Override
+	public List<Product> featured(int n){
+		return productDao.featured(n);
 	}
 
 }
