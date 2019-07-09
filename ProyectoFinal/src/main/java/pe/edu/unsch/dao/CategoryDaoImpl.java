@@ -21,5 +21,10 @@ public class CategoryDaoImpl implements CategoryDao{
 				.createQuery("from Category where parentid=0", Category.class)
 				.getResultList();
 	}
+	
+	@Override
+	public Category find(Integer id) {
+		return (Category) entityManager.find(Category.class,id);
+	}
 
 }

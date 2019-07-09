@@ -55,7 +55,8 @@
 										<div class="col-sm-3">
 											<ul class="multi-column-dropdown">
 												<li>
-													<a href="kitchen.html" th:text="${category2.name}">
+													<a th:href="@{'/product/category/' + ${category2.idcategory}}">
+														<span th:text="${category2.name}"></span>
 														<i class="fa fa-angle-right" aria-hidden="true"></i>
 														</a>
 													</li>
