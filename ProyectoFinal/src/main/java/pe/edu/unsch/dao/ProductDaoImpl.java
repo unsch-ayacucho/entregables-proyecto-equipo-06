@@ -28,6 +28,12 @@ public class ProductDaoImpl implements ProductDao{
 				.setMaxResults(n)
 				.getResultList();
 	}
-	
+	@Override
+	public List<Product> latest(int n){
+		return entityManager.createQuery("from Product order by id desc", Product.class)
+				.setMaxResults(n)
+				.getResultList();
+		
+	}
 
 }

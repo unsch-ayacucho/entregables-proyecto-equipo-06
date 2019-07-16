@@ -36,7 +36,10 @@ public class ProductController {
 	public String datail(@PathVariable("id") Integer id, Model model) {
 		model.addAttribute("titulo","Product detail: e-commerce");
 		model.addAttribute("product", productService.find(id));
+		
 		return "view/public/product/datail";
 	}
+	
+	
 
 }

@@ -25,5 +25,10 @@ public class ProductServiceImpl implements ProductService{
 	public List<Product> featured(int n){
 		return productDao.featured(n);
 	}
+	
+	@Override
+	public List<Product> latest(int n){
+		return productDao.latest(n);
+	}
 
 }

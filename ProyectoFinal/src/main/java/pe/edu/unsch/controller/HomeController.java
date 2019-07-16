@@ -17,7 +17,8 @@ public class HomeController {
 	public String index(Model model) {
 		model.addAttribute("titulo", "Bigstore : e-commerce");
 		model.addAttribute("classActive", "active");
-		model.addAttribute("featuredProducts", productService.featured(2));
+		model.addAttribute("featuredProducts", productService.featured(3));
+		model.addAttribute("productsLatest", productService.latest(2));	
 		return "view/public/home/index";
 	}
 
