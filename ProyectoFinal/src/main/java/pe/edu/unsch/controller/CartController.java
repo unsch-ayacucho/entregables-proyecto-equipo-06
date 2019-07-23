@@ -51,7 +51,7 @@ public class CartController {
 			session.setAttribute("cart", cart);
 		}
 		
-		return "views/public/cart/index";
+		return "view/public/cart/index";
 	}
 	//metodo para eliminar del carrito
 	@GetMapping("delete/{index}")
