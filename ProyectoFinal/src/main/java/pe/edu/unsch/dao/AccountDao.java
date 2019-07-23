@@ -7,4 +7,5 @@ public interface AccountDao {
 	
 	
 	public Account login(String email, String password);
+	public Account find(String email);
 }

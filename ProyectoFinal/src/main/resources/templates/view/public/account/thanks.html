@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+
+    <div th:replace="view/public/layout/layout :: head"></div>
+
+</head>
+
+<body>
+
+    <!-- *** TOPBAR Y NAVBAR ***
+ _________________________________________________________ -->
+	
+	<div th:replace="view/public/layout/layout :: header"></div>
+	
+    <!-- *** TOPBAR Y NAVBAR END *** -->
+
+
+
+    <div id="all">
+    <!-- *** CONTENT ***
+ _________________________________________________________ -->		
+        <div id="content">
+			<div class="container">
+
+                <div class="col-md-12">
+
+                    <ul class="breadcrumb">
+                        <li><a href="#">Home</a>
+                        </li>
+                        <li>My orders</li>
+                    </ul>
+
+                </div>
+
+                <div class="col-md-3">
+                    <!-- *** CUSTOMER MENU ***
+ _________________________________________________________ -->
+                    <div class="panel panel-default sidebar-menu">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Customer section</h3>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <ul class="nav nav-pills nav-stacked">
+                                <li class="active">
+                                    <a href="customer-orders.html"><i class="fa fa-list"></i> My orders</a>
+                                </li>
+                                <li>
+                                    <a href="customer-wishlist.html"><i class="fa fa-heart"></i> My wishlist</a>
+                                </li>
+                                <li>
+                                    <a href="customer-account.html"><i class="fa fa-user"></i> My account</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/account/logout}"><i class="fa fa-sign-out"></i> Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                    <!-- *** CUSTOMER MENU END *** -->
+                </div>
+
+                <div class="col-md-9" id="customer-orders">
+                    <div class="box">
+
+                        <p class="lead">Gracias, </p>
+                        <p class="text-muted">
+                        	<span th:text="${session.email}"></span>
+                        </p>
+						
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container -->
+        
+        </div>
+        <!-- /#content -->
+
+        <!-- *** FOOTER Y COPYRIGHT ***
+ _________________________________________________________ -->
+		<div th:replace="view/public/layout/layout :: footer"></div>
+
+        <!-- *** FOOTER Y COPYRIGHT END *** -->
+
+    </div>
+    <!-- /#all -->
+
+
+    
+
+    <!-- *** SCRIPTS TO INCLUDE ***
+ _________________________________________________________ -->
+    <script th:src="@{/public/js/jquery-1.11.0.min.js}"></script>
+    <script th:src="@{/public/js/bootstrap.min.js}"></script>
+    <script th:src="@{/public/js/jquery.cookie.js}"></script>
+    <script th:src="@{/public/js/waypoints.min.js}"></script>
+    <script th:src="@{/public/js/modernizr.js}"></script>
+    <script th:src="@{/public/js/bootstrap-hover-dropdown.js}"></script>
+    <script th:src="@{/public/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/public/js/front.js}"></script>
+
+
+</body>
+
+</html>

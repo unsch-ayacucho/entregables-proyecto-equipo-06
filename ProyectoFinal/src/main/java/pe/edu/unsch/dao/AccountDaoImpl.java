@@ -31,4 +31,13 @@ public class AccountDaoImpl implements AccountDao {
 	return null;
 	}
 }
+	
+	@Override
+	public Account find(String email) {
+	return (Account) entityManager
+	.createQuery("from Account "
+	+ "where email = :email")
+	.setParameter("email", email)
+	.getSingleResult();
+	}
 }

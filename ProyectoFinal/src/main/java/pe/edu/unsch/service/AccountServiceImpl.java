@@ -23,4 +23,9 @@ public class AccountServiceImpl implements AccountService {
 	public Account login(String email, String password) {
 	return accountDao.login(email, password);
 	}
+	
+	@Override
+	public Account find(String email) {
+	return accountDao.find(email);
+	}
 }
