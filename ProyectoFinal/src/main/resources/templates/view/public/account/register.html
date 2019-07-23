@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+
+<div th:replace="view/public/layout/layout :: head"></div>
+<style type="text/css">
+#izquierda{
+float:rigth;
+}
+#derecha{
+float:left;
+}
+</style>
+</head>
+
+<body>
+
+	<!-- *** TOPBAR Y NAVBAR ***
+ _________________________________________________________ -->
+
+	<div th:replace="view/public/layout/layout :: header"></div>
+
+	<!-- *** TOPBAR Y NAVBAR END *** -->
+
+
+
+	<div id="all">
+		<!-- *** CONTENT ***
+ _________________________________________________________ -->
+		<div id="content">
+			<!--banner-->
+			<div class="banner-top">
+				<div class="container">
+					<h3>Registrar/Login</h3>
+					<h4>
+						<a th:href="@{/home/index.html}">Home</a><label>/</label>
+					</h4>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+
+			<!--REGISTER-->
+			<div class="container">
+                <div class="col-md-6">
+                    <div class="box">
+                        <h1>Registrar</h1>
+                        <hr>
+
+                        <form th:action="@{/account/register}" th:object="${account}" method="post">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" th:field="*{name}" class="form-control" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" th:field="*{email}" class="form-control" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" th:field="*{password}" class="form-control" id="password">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-user-md"></i> Registar</button>
+                            </div>
+                        </form>
+                        <span th:text="${message}"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box">
+                        <h1>Login</h1>
+
+                      <hr>
+
+                        <form th:action="@{/account/login}" method="post">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" name="email" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" name="password" id="password">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+                            </div>
+                        </form>
+                        <span th:text="${error}"></span>
+                    </div>
+                </div>
+
+
+            </div>
+				
+
+		</div>
+	</div>
+	<!-- FOOTER -->
+	<div th:replace="view/public/layout/layout :: footer"></div>
+
+</body>
+
+</html>

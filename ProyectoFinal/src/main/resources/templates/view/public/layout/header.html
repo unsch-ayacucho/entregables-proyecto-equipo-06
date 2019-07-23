@@ -15,7 +15,7 @@
 						aria-hidden="true"></i>Wishlist</a></li>
 				<li><a href="login.html"><i class="fa fa-user"
 						aria-hidden="true"></i>Login</a></li>
-				<li><a href="register.html"><i class="fa fa-arrow-right"
+				<li><a th:href="@{/account/register}"><i class="fa fa-arrow-right"
 						aria-hidden="true"></i>Register</a></li>
 				<li><a href="about.html"><i class="fa fa-file-text-o"
 						aria-hidden="true"></i>Order History</a></li>
@@ -116,7 +116,7 @@
 					class="fa fa-shopping-cart"></i>
 					 
 					<!-- <span th:text="*{session.cart.size()}?: '(0)'"></span> -->
-					<span th:text="*{session.cart.size()}?: '(0)'"></span>
+					<!-- <span th:text="*{session.cart.size()}?: '(0)'"></span> -->
 					<!-- <span th:text="*{session.cart.size() != null}? *{session.cart.size()} : '(0)'"></span> -->
 					<span class="hidden-sm">items in cart</span>
 				</a>

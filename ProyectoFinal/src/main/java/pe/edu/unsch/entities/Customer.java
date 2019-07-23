@@ -1,5 +1,5 @@
 package pe.edu.unsch.entities;
-// Generated 01/07/2019 01:40:43 PM by Hibernate Tools 5.1.7.Final
+// Generated 23/07/2019 03:04:57 AM by Hibernate Tools 5.1.7.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -7,6 +7,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -20,7 +22,7 @@ import javax.persistence.TemporalType;
 @Table(name = "customer", catalog = "bigdb")
 public class Customer implements java.io.Serializable {
 
-	private int idcustomer;
+	private Integer idcustomer;
 	private String firstname;
 	private String lastname;
 	private Date birthdate;
@@ -30,13 +32,7 @@ public class Customer implements java.io.Serializable {
 	public Customer() {
 	}
 
-	public Customer(int idcustomer) {
-		this.idcustomer = idcustomer;
-	}
-
-	public Customer(int idcustomer, String firstname, String lastname, Date birthdate, String address,
-			Set<Product> products) {
-		this.idcustomer = idcustomer;
+	public Customer(String firstname, String lastname, Date birthdate, String address, Set<Product> products) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.birthdate = birthdate;
@@ -45,13 +41,14 @@ public class Customer implements java.io.Serializable {
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "idcustomer", unique = true, nullable = false)
-	public int getIdcustomer() {
+	public Integer getIdcustomer() {
 		return this.idcustomer;
 	}
 
-	public void setIdcustomer(int idcustomer) {
+	public void setIdcustomer(Integer idcustomer) {
 		this.idcustomer = idcustomer;
 	}
 

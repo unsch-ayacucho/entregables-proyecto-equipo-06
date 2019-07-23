@@ -1,13 +1,16 @@
 package pe.edu.unsch.entities;
-// Generated 01/07/2019 01:40:43 PM by Hibernate Tools 5.1.7.Final
+// Generated 23/07/2019 03:04:57 AM by Hibernate Tools 5.1.7.Final
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -27,6 +30,7 @@ public class Product implements java.io.Serializable {
 	private String description;
 	private String urlimage;
 	private byte feature;
+	private Set<Ordersdetail> ordersdetails = new HashSet<Ordersdetail>(0);
 
 	public Product() {
 	}
@@ -44,7 +48,7 @@ public class Product implements java.io.Serializable {
 	}
 
 	public Product(int idproduct, Brand brand, Category category, Customer customer, String name, BigDecimal price,
-			int quantity, String description, String urlimage, byte feature) {
+			int quantity, String description, String urlimage, byte feature, Set<Ordersdetail> ordersdetails) {
 		this.idproduct = idproduct;
 		this.brand = brand;
 		this.category = category;
@@ -55,6 +59,7 @@ public class Product implements java.io.Serializable {
 		this.description = description;
 		this.urlimage = urlimage;
 		this.feature = feature;
+		this.ordersdetails = ordersdetails;
 	}
 
 	@Id
@@ -150,6 +155,15 @@ public class Product implements java.io.Serializable {
 
 	public void setFeature(byte feature) {
 		this.feature = feature;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+	public Set<Ordersdetail> getOrdersdetails() {
+		return this.ordersdetails;
+	}
+
+	public void setOrdersdetails(Set<Ordersdetail> ordersdetails) {
+		this.ordersdetails = ordersdetails;
 	}
 
 }

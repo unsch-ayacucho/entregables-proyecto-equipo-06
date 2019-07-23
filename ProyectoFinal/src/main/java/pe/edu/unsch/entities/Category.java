@@ -1,5 +1,5 @@
 package pe.edu.unsch.entities;
-// Generated 01/07/2019 01:40:43 PM by Hibernate Tools 5.1.7.Final
+// Generated 23/07/2019 03:04:57 AM by Hibernate Tools 5.1.7.Final
 
 import java.util.HashSet;
 import java.util.List;
@@ -7,6 +7,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -19,7 +21,7 @@ import javax.persistence.Table;
 @Table(name = "category", catalog = "bigdb")
 public class Category implements java.io.Serializable {
 
-	private int idcategory;
+	private Integer idcategory;
 	private String name;
 	private Integer status;
 	private Integer parentid;
@@ -29,12 +31,7 @@ public class Category implements java.io.Serializable {
 	public Category() {
 	}
 
-	public Category(int idcategory) {
-		this.idcategory = idcategory;
-	}
-
-	public Category(int idcategory, String name, Integer status, Integer parentid, Set<Product> products) {
-		this.idcategory = idcategory;
+	public Category(String name, Integer status, Integer parentid, Set<Product> products) {
 		this.name = name;
 		this.status = status;
 		this.parentid = parentid;
@@ -42,13 +39,14 @@ public class Category implements java.io.Serializable {
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "idcategory", unique = true, nullable = false)
-	public int getIdcategory() {
+	public Integer getIdcategory() {
 		return this.idcategory;
 	}
 
-	public void setIdcategory(int idcategory) {
+	public void setIdcategory(Integer idcategory) {
 		this.idcategory = idcategory;
 	}
 
@@ -91,9 +89,10 @@ public class Category implements java.io.Serializable {
 	@JoinColumn(name = "parentid", referencedColumnName = "idcategory")
 	public List<Category> getCategories() {
 		return categories;
-		}
+	}
+
 	public void setCategories(List<Category> categories) {
 		this.categories = categories;
-		}
+	}
 
 }
